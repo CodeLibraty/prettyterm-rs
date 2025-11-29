@@ -1,0 +1,22 @@
+[package]
+name = "prettyterm"
+version = "0.1.0"
+edition = "2021"
+authors = ["CodeLibraty Foundation"]
+license = "GPL-3.0-or-later"
+description = "Make your terminal interfaces prettier!"
+repository = "https://github.com/CodeLibraty/prettyterm-rs"
+
+[dependencies]
+chrono = "0.4"
+
+[target.'cfg(unix)'.dependencies]
+nix = { version = "0.29", features = ["ioctl"] }
+
+[lib]
+name = "prettyterm"
+path = "src/lib.rs"
+
+[[test]]
+name = "integration_tests"
+path = "tests/integration_tests.rs"
